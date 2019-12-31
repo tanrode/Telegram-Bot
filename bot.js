@@ -83,18 +83,19 @@ bot.onText(/^\/all(.+)/,(msg,match)=>{
 	client.query(query, (err, data)=>{
 
 		if(err) throw err;
-/*	
+		
+		/*	
 		for(let x in data.rows)
 		{
 			if(data.rows[x].genre == match[1])
+			{
 				flag=1;
+				break;
+			}
 		}
 
-		if(flag==0)
-		{
-			bot.sendMessage(msg.chat.id,"NO MATCH")
-		}
-*/
+		*/
+
 /*		if(flag==0)
 		{
 			q2 = "SELECT quote FROM bot1schema.FriendhsipQuotes WHERE genre="+"'"+match[1]+"'"
@@ -150,11 +151,6 @@ bot.onText(/^\/random(.+)/,(msg,match)=>{
 				flag=1;
 				break;
 			}
-		}
-
-		if(flag==0)
-		{
-			bot.sendMessage(msg.chat.id,"NO MATCH")
 		}
 		*/
 
