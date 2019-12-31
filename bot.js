@@ -7,7 +7,7 @@ bot = new Bot(process.env.TOKEN, {polling:true});
 console.log('bot server started...');
 
 bot.onText(/^\/start$/,(msg)=>{
-	var functions = "/mighty_mighty \n /random_ \n /all_ \n";
+	var functions = "/mighty_mighty \n /random_ \n ";
 		var client = new Client({
 			connectionString: process.env.DATABASE_URL,
 			ssl:true
@@ -23,13 +23,13 @@ bot.onText(/^\/start$/,(msg)=>{
 			console.log(data.rows);
 
 			for(let x in data.rows)
+				functions+='/random'+data.rows[x].genre+'\n'
+			functions+='/all_ \n'
+
+			for(let x in data.rows)
 			{
 				functions+='/all'+data.rows[x].genre+'\n';
 			}
-
-			for(let x in data.rows)
-				functions+='/random'+data.rows[x].genre+'\n'
-
 
 			functions+='/help \n'
 			bot.sendMessage(msg.chat.id, functions)
